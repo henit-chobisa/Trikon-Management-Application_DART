@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "388555980510",
+    "project_id": "trikon-9604b",
+    "storage_bucket": "trikon-9604b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388555980510:android:3a184b1bef13320e714c4f",
+        "android_client_info": {
+          "package_name": "com.henitchobisa.trikon_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "388555980510-v1luk80secq8p3i7mg1h8tb0gqg5up9n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPNn_S6ZO12fuhY-fO8BUpJ3PizjD92h4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "388555980510-v1luk80secq8p3i7mg1h8tb0gqg5up9n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

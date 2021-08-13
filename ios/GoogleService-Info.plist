@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>388555980510-f9qrla84ut2k40qn391rvsm2jk82ab3d.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.388555980510-f9qrla84ut2k40qn391rvsm2jk82ab3d</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC6hHkjUus_pbDhIB9y1fY-8Xolc3u6--M</string>
+	<key>GCM_SENDER_ID</key>
+	<string>388555980510</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.henitchobisa.trikonApp</string>
+	<key>PROJECT_ID</key>
+	<string>trikon-9604b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>trikon-9604b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:388555980510:ios:c6874d0ad809fdd7714c4f</string>
+</dict>
+</plist>
