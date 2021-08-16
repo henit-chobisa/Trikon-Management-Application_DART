@@ -32,6 +32,9 @@ dependencies:
   firebase_core:
   firebase_auth:
   http: ^0.13.3
+  google_sign_in: ^5.0.7
+  marquee:
+  custom_sliding_segmented_control: ^1.0.0
 
 dev_dependencies:
   flutter_test:
