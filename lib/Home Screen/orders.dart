@@ -1,7 +1,10 @@
+import 'dart:convert';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:trikon_app/Widgets/OrderTile.dart';
+import 'package:http/http.dart' as http;
 
 class ordersPage extends StatefulWidget {
   const ordersPage({Key? key}) : super(key: key);
@@ -11,8 +14,20 @@ class ordersPage extends StatefulWidget {
 }
 
 class _ordersPageState extends State<ordersPage> {
+  Future<void> getAllOrders() async {
+    var url = Uri.parse("http://127.0.0.1:5000/getOrders");
+    var token = await FirebaseAuth.instance.currentUser!.getIdToken();
+    var results = await http.get(url, headers: {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer ${token}"
+    });
+    var myJson = jsonDecode(results.body);
+    print(myJson.toString());
+  }
+
   @override
   Widget build(BuildContext context) {
+    getAllOrders();
     return SafeArea(
       child: Scaffold(
         body: Column(
