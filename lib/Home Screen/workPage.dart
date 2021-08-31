@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:marquee/marquee.dart';
 import 'package:trikon_app/Classes/Activity%20Class.dart';
 import 'package:trikon_app/Classes/Product%20Class.dart';
+import 'package:trikon_app/Home%20Screen/placeOrderPage.dart';
 import 'package:trikon_app/Widgets/ProductTile.dart';
 import 'package:trikon_app/Widgets/activity%20tile.dart';
 
@@ -17,16 +18,16 @@ class workPage extends StatefulWidget {
 
 class _workPageState extends State<workPage> {
   List<Product> products = [
-    Product(name: "Aligners", imageURL: "images/1.jpg", prize: "₹ 300"),
-    Product(name: "Panda Toy", imageURL: "images/2.jpg", prize: "₹ 200"),
-    Product(name: "Castle", imageURL: "images/3.jpg", prize: "₹ 300"),
-    Product(name: "Alien", imageURL: "images/4.jpg", prize: "₹ 200"),
-    Product(name: "Lofi", imageURL: "images/5.jpg", prize: "₹ 500"),
-    Product(name: "Hand", imageURL: "images/6.jpg", prize: "₹ 500"),
-    Product(name: "Spider Man", imageURL: "images/7.jpg", prize: "₹ 500"),
-    Product(name: "Owl", imageURL: "images/8.jpg", prize: "₹ 200"),
-    Product(name: "Mahaveer", imageURL: "images/9.jpg", prize: "₹ 500"),
-    Product(name: "Bull", imageURL: "images/10.jpg", prize: "₹ 500")
+    Product(name: "Aligners", imageURL: "images/1.jpg", prize: "300"),
+    Product(name: "Panda Toy", imageURL: "images/2.jpg", prize: "200"),
+    Product(name: "Castle", imageURL: "images/3.jpg", prize: "300"),
+    Product(name: "Alien", imageURL: "images/4.jpg", prize: "200"),
+    Product(name: "Lofi", imageURL: "images/5.jpg", prize: "500"),
+    Product(name: "Hand", imageURL: "images/6.jpg", prize: "500"),
+    Product(name: "Spider Man", imageURL: "images/7.jpg", prize: "500"),
+    Product(name: "Owl", imageURL: "images/8.jpg", prize: "200"),
+    Product(name: "Mahaveer", imageURL: "images/9.jpg", prize: "500"),
+    Product(name: "Bull", imageURL: "images/10.jpg", prize: "500")
   ];
 
   List<Activity> activities = [
@@ -169,8 +170,17 @@ class _workPageState extends State<workPage> {
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
                 itemBuilder: (_, index) {
-                  return ProductCatlogTile(
-                    product: products.elementAt(index),
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => OrderCatalogPage(
+                                  product: products.elementAt(index))));
+                    },
+                    child: ProductCatlogTile(
+                      product: products.elementAt(index),
+                    ),
                   );
                 }),
           ),

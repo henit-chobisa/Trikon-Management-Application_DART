@@ -50,7 +50,7 @@ class ProductCatlogTile extends StatelessWidget {
                       style: TextStyle(color: Colors.white, fontSize: 17.sp),
                     ),
                     Text(
-                      product.prize,
+                      "₹ ${product.prize}",
                       style: TextStyle(color: Colors.white, fontSize: 14.sp),
                     ),
                   ],

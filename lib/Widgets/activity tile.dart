@@ -8,14 +8,14 @@ class ActivityTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 10, right: 10, top: 10),
+      padding: EdgeInsets.only(left: 10.w, right: 10.r, top: 10.h),
       child: Container(
-        height: 80.h,
+        height: 100.h,
         width: 400.w,
         margin: const EdgeInsets.only(bottom: 6.0),
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(20.r),
           boxShadow: [
             BoxShadow(
               color: Colors.grey,
@@ -63,7 +63,7 @@ class ActivityTile extends StatelessWidget {
                   ),
                 ),
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(15.r),
                   child: Image(
                     image: activity.companyImageURL,
                     height: 30.h,
@@ -74,7 +74,7 @@ class ActivityTile extends StatelessWidget {
                   width: 10.w,
                 ),
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(15.r),
                   child: Image(
                     image: activity.employImageURL,
                     height: 30.h,

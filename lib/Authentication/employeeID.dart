@@ -1,13 +1,8 @@
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:trikon_app/Authentication/loginPage.dart';
 import 'package:trikon_app/Home%20Screen/homeLayout.dart';
-import 'package:http/http.dart' as http;
+import 'package:trikon_app/Widgets/trikonButton.dart';
 
 class employeeID extends StatefulWidget {
   employeeID({this.accessToken});

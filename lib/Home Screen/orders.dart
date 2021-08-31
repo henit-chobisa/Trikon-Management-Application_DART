@@ -3,31 +3,45 @@ import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:trikon_app/Classes/Order.dart';
+import 'package:trikon_app/Classes/User.dart';
 import 'package:trikon_app/Widgets/OrderTile.dart';
 import 'package:http/http.dart' as http;
 
 class ordersPage extends StatefulWidget {
   const ordersPage({Key? key}) : super(key: key);
-
   @override
   _ordersPageState createState() => _ordersPageState();
 }
 
 class _ordersPageState extends State<ordersPage> {
+  List<Order> orderList = [];
   Future<void> getAllOrders() async {
+    orderList = [];
     var url = Uri.parse("http://127.0.0.1:5000/getOrders");
     var token = await FirebaseAuth.instance.currentUser!.getIdToken();
     var results = await http.get(url, headers: {
       "Content-Type": "application/json",
       "Authorization": "Bearer ${token}"
     });
-    var myJson = jsonDecode(results.body);
-    print(myJson.toString());
+    List<dynamic> orders = jsonDecode(results.body);
+    orders.forEach((element) {
+      Order order = Order.fromJson(element);
+      orderList.add(order);
+    });
+    orderList.sort((a, b) {
+      return b.time.compareTo(a.time);
+    });
+  }
+
+  @override
+  void initState() {
+    getAllOrders();
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    getAllOrders();
     return SafeArea(
       child: Scaffold(
         body: Column(
@@ -97,15 +111,34 @@ class _ordersPageState extends State<ordersPage> {
             SizedBox(
               height: 20.h,
             ),
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.only(left: 10.w, right: 10.w),
-                child: ListView.builder(
-                    itemCount: 10,
-                    itemBuilder: (_, index) {
-                      return OrderTile();
-                    }),
-              ),
+            FutureBuilder(
+              future: getAllOrders(),
+              builder: (_, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Text(
+                    "Cooking Cooking...",
+                    style: TextStyle(fontSize: 20, color: Colors.black),
+                  );
+                } else {
+                  return Expanded(
+                    child: Container(
+                      height: double.maxFinite,
+                      width: 400,
+                      child: RefreshIndicator(
+                        onRefresh: getAllOrders,
+                        child: ListView.builder(
+                            itemCount: orderList.length,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemBuilder: (_, index) {
+                              return OrderTile(
+                                  order: orderList.elementAt(index));
+                            }),
+                      ),
+                    ),
+                  );
+                }
+              },
             )
           ],
         ),
